@@ -1,0 +1,15 @@
+{
+  "name": "pngjs-util",
+  "version": "1.0.0",
+  "description": "A simple manipulation API for pngjs images. Allows simple editing of images like drawing lines resizing and cropping. ",
+  "main": "main.js",
+  "repository": "https://github.com/NexusNull/pngjs-util.git",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pngjs-util"
+  ],
+  "author": "Patric Wellershaus",
+  "license": "MIT"
+}
