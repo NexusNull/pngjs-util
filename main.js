@@ -5,7 +5,14 @@ const util = require("./app/util");
 
 async function loadFile(filePath) {
     return new Promise(function (resolve, reject) {
-        let readStream = fs.createReadStream(filePath);
+        let readStream;
+        try {
+            readStream = fs.createReadStream(filePath);
+        } catch (e) {
+            reject(e);
+            return;
+        }
+
         readStream.pipe(
             new PNG({
                 filterType: 4,
@@ -79,7 +86,6 @@ function crop(sourcePNG, x, y, width, height) {
 
     for (let _y = 0; _y < height; _y++) {
         for (let _x = 0; _x < width; _x++) {
-            console.log((_y + y), _x + x)
             for (let i = 0; i < 4; i++) {
                 png.data[(_y * width + _x) * 4 + i] = sourcePNG.data[((_y + y) * sourcePNG.width + _x + x) * 4 + i];
             }
@@ -125,4 +131,4 @@ module.exports = {
     writeFile,
     crop,
     insert
-}
+};
