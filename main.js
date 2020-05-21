@@ -12,6 +12,8 @@ async function loadFile(filePath) {
             })
         ).on("parsed", function () {
             resolve(this);
+        }).on("error", function (err) {
+            reject(err)
         })
     });
 }
