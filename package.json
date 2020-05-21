@@ -11,5 +11,8 @@
     "pngjs-util"
   ],
   "author": "Patric Wellershaus",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "pngjs": "^5.0.0"
+  }
 }
