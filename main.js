@@ -5,13 +5,8 @@ const util = require("./app/util");
 
 async function loadFile(filePath) {
     return new Promise(function (resolve, reject) {
-        let readStream;
-        try {
-            readStream = fs.createReadStream(filePath);
-        } catch (e) {
-            reject(e);
-            return;
-        }
+        let readStream = fs.createReadStream(filePath);
+        readStream.on("error", reject.bind(null));
 
         readStream.pipe(
             new PNG({
