@@ -68,8 +68,8 @@ function crop(sourcePNG, x, y, width, height) {
         typeof sourcePNG.height !== "number")
         throw new TypeError("sourcePNG has to contain properties width and height");
 
-    if (width < 1 || height < 1)
-        throw new Error("width and height can't be less than 1");
+    if (width < 0 || height < 0)
+        throw new Error("width and height can't be less than 0");
     if (sourcePNG.width < width || sourcePNG.height < height)
         throw new Error("width and height can't exceed image dimensions");
 
@@ -105,7 +105,7 @@ function insert(sourcePNG, targetPNG, x, y) {
         typeof targetPNG.height !== "number")
         throw new TypeError("targetPNG has to contain properties width and height");
 
-    if (x < 1 || y < 1)
+    if (x < 0 || y < 0)
         throw new Error("x or y can't be less than 1");
     if (x + sourcePNG.width > targetPNG.width && y + sourcePNG.height > targetPNG.height)
         throw new Error("width or height of the source image exceed the dimensions of the target image");
